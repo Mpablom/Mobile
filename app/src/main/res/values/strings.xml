@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+
+    <string name="welcome">Bienvenidos a la aplicación del clima!</string>
+    <string name="btn_forecast">Pronóstico Actual</string>
+    <string name="btn_city">Listado de Ciudades</string>
+    <string name="city_temperature">Ciudad: %1$s \n Temperatura: %2$.2f</string>
+</resources>
