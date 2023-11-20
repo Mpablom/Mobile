@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 public class ListActivity extends AppCompatActivity {
     ListView listView;
-    String[] cities = {"Capital", "Rawson", "Rivadavia", "Chimbas", "Pocito"};
+    String[] cities = {"San Juan", "Mendoza", "San Luis", "Córdoba", "Catamarca"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

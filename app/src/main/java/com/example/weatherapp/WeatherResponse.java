@@ -1,22 +1,38 @@
 package com.example.weatherapp;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class WeatherResponse {
-    private String cityName;
-    private double temperature;
+    private MainData main;
+    private List<WeatherDescription> weather;
 
-    public String getCityName() {
-        return cityName;
+    public MainData getMain() {
+        return main;
     }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public List<WeatherDescription> getWeather(){
+        return weather;
     }
+    public static class MainData{
+        private double temp;
+        private double temp_min;
+        private double temp_max;
 
-    public double getTemperature() {
-        return temperature;
+        public double getTemp(){
+            return temp;
+        }
+        public double getTemp_min(){
+            return temp_min;
+        }
+        public double getTemp_max(){
+            return temp_max;
+        }
     }
-
-    public void setTemperature(double temperature) {
-        this.temperature = temperature;
+    public static class WeatherDescription{
+        private String description;
+        public String getDescription(){
+            return description;
+        }
     }
 }

@@ -1,21 +1,17 @@
 package com.example.weatherapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.Manifest;
+import android.widget.EditText;
 
-import com.squareup.picasso.Picasso;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,10 +20,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView imageView = findViewById(R.id.imageView);
-        String imageUrl = "https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg";
-
-        Picasso.get().load(imageUrl).into(imageView);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, 1);
+        }
 
         Button listButton = findViewById(R.id.btn2);
         Button forecastButton = findViewById(R.id.btn1);
@@ -43,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         forecastButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String cityName = "Nombre de la Ciudad";
+                String cityName = "San Juan";
+
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 intent.putExtra("cityName", cityName);
                 startActivity(intent);
